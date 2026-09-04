@@ -86,5 +86,5 @@ if __name__ == "__main__":
     exp = []
     for f in files: exp += sorted(glob.glob(f)) if any(c in f for c in "*?[") else [f]
     for f in exp:
-        with open(f) as fh: r = lint(fh.read())
+        with open(f, encoding="utf-8") as fh: r = lint(fh.read())
         print(f"{os.path.basename(f):32} words={r['words']:4d} total={r['total']:3d} per100w={r['total_per100w']:6.2f} em_dash={r['em_dash(slop-marker)']:2d}")
